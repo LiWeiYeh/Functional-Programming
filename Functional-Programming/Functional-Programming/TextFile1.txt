@@ -1,0 +1,169 @@
+﻿// Learn more about F# at http://fsharp.org
+
+open System
+[<EntryPoint>]
+let main argv =
+    printfn "Hello World from F#!"
+    
+    // ex 1
+    let rec allNumber = 
+        fun (n) ->
+            if(n <= 0) then ""
+            else allNumber(n - 1) + " " + string n
+    
+    // ex 2
+    let rec allNumberRev =
+        fun (n) ->
+            if(n <= 0) then ""
+            else string n + " " + allNumberRev(n - 1)
+
+    // ex 3
+    let rec allNumberRange =
+        fun (lower, upper) ->
+            if(lower > upper) then "lower value is greater than upper value"
+            elif(lower = upper) then string upper
+            else string lower + " " + allNumberRange(lower + 1, upper)
+     
+    // ex 4
+    let rec allNumberRangeRev =
+        fun (lower, upper) ->
+            if(lower > upper) then "lower value is greater than upper value"
+            elif(lower = upper) then string upper
+            else allNumberRangeRev(lower + 1, upper) + " " + string lower 
+
+    // ex 5
+    let rec allEvenRange =
+        fun (lower, upper) ->
+            if(lower > upper) then "lower value is greater than upper value"
+            else
+                if(lower % 2 = 0) then
+                    if(lower = upper) then string upper
+                    else string lower + " " + allEvenRange(lower + 1, upper)
+                else allEvenRange(lower + 1, upper)
+
+    // ex 6
+    let rec drawLine = 
+        fun length ->
+            if(length <= 0) then " "
+            else "*" + drawLine(length - 1)
+
+    // ex 7, curried
+    let rec drawSymbol = 
+        fun symbol length ->
+            if(length <= 0) then " "
+            else symbol + drawSymbol(symbol)(length-1)
+
+    // ex 8
+    //let rec toBinary =
+    //    fun n ->
+    //        if(n <= 0) then ""
+    //        else 
+    //            if(n % 2 = 0) then 
+
+
+
+    
+    
+    printfn "%s" ("allNumber(10): " + allNumber(10))
+    printfn "%s" ("allNumberRev(10): " + allNumberRev(10))
+    printfn "%s" ("allNumberRange(2, 8): " + allNumberRange(2, 8))
+    printfn "%s" ("allNumberRangeRev(2, 8): " + allNumberRangeRev(2, 8))
+    printfn "%s" ("allEvenRange(2, 8): " + allEvenRange(2, 8))
+    printfn "%s" ("drawLine(6): " + drawLine(6))
+    printfn "%s" ("drawSymbol(*)(6): " + drawSymbol("#")(6))
+
+    
+    //let add : int -> int -> int = 
+    //    fun (a: int) (b: int) -> a + b
+    //let inc : int -> int = add (1)
+    
+    
+
+    //let curry : (('a * 'b) -> 'c) -> 'a -> 'b -> 'c =
+    //    fun f -> fun a -> fun b -> fun(a, b)
+
+    //let uncurry : ('a -> 'b -> 'c) -> ('a * 'b) -> 'c =
+    //    fun f -> fun(a, b) -> f a b
+
+    //let curryAdd = fun a b -> a + b
+    //let uncurryAdd = uncurry curryAdd
+
+
+
+    let apply : (int -> int -> int) -> int -> int -> int = fun f i1 i2 -> f i1 i2
+
+    let inc = apply (+) 1
+    let sum = apply (+)
+
+    printfn "%d" (inc 5)
+    printfn "%d" (sum 5 10)
+
+
+
+    // TUPLES
+
+    let pair : int * string * bool = 1, "ciao", true
+
+    let sum_curry : int -> int -> int = fun i1 i2 -> i1 + i2
+    // passes one after another
+    // (sum_curry 1) 2
+
+    let sum_uncurry : (int * int) -> int = fun (i1, i2) -> i1 + i2
+    // passes one if you know all elements already
+    // (sum_uncurry (1, 2)) 
+
+    printfn "%d" (sum_uncurry(1, 2))
+
+
+
+
+
+
+
+
+
+    0 // return an integer exit code
+    //// RECORDS
+    type Person = {
+        Name : string
+        Surname : string
+        Age : int
+        Address : string
+        Email : List<string>
+    } with
+    static member Create(name: string, surname: string, age: int, Address: string, email: List<string>) : Person =
+        {
+            Name = name;
+            Surname = surname;
+            Age = age;
+            Address = address;
+            Email = email;
+        }
+    member this.HappyBirthday() : Person = { this with Age = this.Age + 1}
+
+    let person1 : Person = Person.Create("Pippo", "Pluto", 18, "wijnhaven", [])
+
+    let person1 = person1.HappyBirthday()
+
+    let person2: Person = {
+        Name = "mario";
+        Surname = "Rossi";
+        Age = 22;
+        Address = "Blaak 321";
+        Email = []
+    }
+
+    let are_the_same : Person -> Person -> bool =
+        fun p1 p2 -> p1 = p2
+
+    printfn "%b" (are_the_same person1 person 2)
+
+    type Student = {
+        Person : Person
+        StudentNumber : int
+    } with
+      static member Create(student_number:int) : Person -> Student = 
+        fun p -> { Person = pown; StudentNumber = student_number }
+
+    let student = Student.Create 123 (Person.Create("all args"))
+    //let student = student with student.person.nwenwevewvon happy birthday

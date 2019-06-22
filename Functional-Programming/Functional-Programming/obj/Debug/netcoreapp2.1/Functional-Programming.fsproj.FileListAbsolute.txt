@@ -1,0 +1,10 @@
+C:\Users\liwei\source\repos\Functional-Programming\Functional-Programming\Functional-Programming\bin\Debug\netcoreapp2.1\Functional-Programming.deps.json
+C:\Users\liwei\source\repos\Functional-Programming\Functional-Programming\Functional-Programming\bin\Debug\netcoreapp2.1\Functional-Programming.runtimeconfig.json
+C:\Users\liwei\source\repos\Functional-Programming\Functional-Programming\Functional-Programming\bin\Debug\netcoreapp2.1\Functional-Programming.runtimeconfig.dev.json
+C:\Users\liwei\source\repos\Functional-Programming\Functional-Programming\Functional-Programming\bin\Debug\netcoreapp2.1\Functional-Programming.dll
+C:\Users\liwei\source\repos\Functional-Programming\Functional-Programming\Functional-Programming\bin\Debug\netcoreapp2.1\Functional-Programming.pdb
+C:\Users\liwei\source\repos\Functional-Programming\Functional-Programming\Functional-Programming\obj\Debug\netcoreapp2.1\Functional-Programming.fsprojAssemblyReference.cache
+C:\Users\liwei\source\repos\Functional-Programming\Functional-Programming\Functional-Programming\obj\Debug\netcoreapp2.1\Functional-Programming.AssemblyInfoInputs.cache
+C:\Users\liwei\source\repos\Functional-Programming\Functional-Programming\Functional-Programming\obj\Debug\netcoreapp2.1\Functional-Programming.AssemblyInfo.fs
+C:\Users\liwei\source\repos\Functional-Programming\Functional-Programming\Functional-Programming\obj\Debug\netcoreapp2.1\Functional-Programming.dll
+C:\Users\liwei\source\repos\Functional-Programming\Functional-Programming\Functional-Programming\obj\Debug\netcoreapp2.1\Functional-Programming.pdb
