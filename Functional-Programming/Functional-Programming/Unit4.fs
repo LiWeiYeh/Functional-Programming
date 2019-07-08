@@ -4,7 +4,7 @@ let concat x = x + 1
 
 
 let mapFold (f: 'a -> 'b) (l : List<'a>) : List<'b> =
-    l |> List.fold (fun mappedList x -> mappedList @ [f x]) []
+    l |> List.fold (fun mappedList x -> f x :: mappedList) [] |> List.rev
 
 
 
@@ -63,7 +63,7 @@ let rec map2Safe (f : 'a -> 'b -> 'c) (l1 : List<'a>) (l2 : List<'b>) : List<Opt
     match l1, l2 with
     | [], [] -> []
     | l1, [] -> l1 |> List.map (fun _ -> None)
-    | l2, [] -> l2 |> List.map (fun _ -> None)
+    | [], l2 -> l2 |> List.map (fun _ -> None)
     | x :: xs,y :: ys ->
       (Some (f x y)) :: (map2Safe f xs ys)
 

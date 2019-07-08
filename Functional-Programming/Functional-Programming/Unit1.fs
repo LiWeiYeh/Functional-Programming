@@ -85,13 +85,6 @@ let rec toBase (n : int) (_base : int) : string =
 
 
 
-
-
-
-
-
-
-
 let testUnit1() = 
     printfn "%s" ("allNumber(10): " + allNumber(10))
     printfn "%s" ("allNumberRev(10): " + allNumberRev(10))
